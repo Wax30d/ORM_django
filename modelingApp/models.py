@@ -27,3 +27,16 @@ class Vehicle_2(models.Model):
         on_delete=models.CASCADE,
         related_name='Vehicle'
     )
+
+
+# Many-to-many relationship
+class Worker(models.Model):
+    name = models.CharField(max_length=255)
+
+
+class Machine(models.Model):
+    name = models.CharField(max_length=255)
+    worker = models.ManyToManyField(
+        Worker,
+        related_name='Machine'
+    )
